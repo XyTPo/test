@@ -1,0 +1,147 @@
+.top-job {
+  position: relative;
+  @include desktop {
+    height: 954px;
+  }
+  @include tabletOnly {
+    height: 648px;
+  }
+  @include mobile {
+    height: 510px;
+  }
+
+  &__content {
+    @include desktop {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 95px;
+      padding-right: 413px;
+    }
+    @include tabletOnly {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 53px;
+      padding-right: 350px;
+    }
+    @include mobile {
+      padding-top: 19px;
+    }
+  }
+
+  &__block {
+    text-align: center;
+    @include desktop {
+      width: 400px;
+    }
+    @include tabletOnly {
+      width: 257px;
+    }
+    @include mobile {
+      width: 265px;
+      margin: 0 auto;
+    }
+  }
+
+  &__logo {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+    @include desktop {      
+      margin-bottom: 22px;
+    }
+    @include tabletOnly {
+      max-width: 235px;
+      margin: 0 auto 13px;
+    }
+    @include mobile {
+      max-width: 235px;
+      margin: 0 auto 13px;
+    }
+  }
+
+  &__t1 {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+    letter-spacing: 0.02em;
+    margin-bottom: 25px;
+    color: #fff;
+    @include tabletOnly {
+      font-size: 20px;
+      line-height: 23px;
+      margin-bottom: 15px;
+    }
+    @include mobile {
+      font-size: 20px;
+      line-height: 23px;
+      margin-bottom: 15px;
+    }
+  }  
+  
+  &__t2 {
+    font-weight: 800;
+    font-size: 35px;
+    line-height: 41px;
+    letter-spacing: 0.02em;
+    margin-bottom: 36px;
+    color: #fff;
+    @include tabletOnly {
+      font-size: 22px;
+      line-height: 26px;
+      margin-bottom: 21px;
+    }
+    @include mobile {
+      font-size: 22px;
+      line-height: 26px;
+      margin-bottom: 18px;
+    }
+    b {
+      font-weight: inherit;
+      color: #FF9900;
+    }
+  }
+
+  &__scroll-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 373px;
+    min-height: 52px;
+    background: linear-gradient(90.62deg, #FF9900 9.84%, #FFCC00 116.57%);
+    box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.18);
+    border-radius: 46px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.261;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: $white-color;
+    cursor: pointer;
+    margin: 0 auto;
+    @include tabletOnly {
+      font-size: 16px;
+      min-height: 35px;
+    }
+    @include mobile {
+      font-size: 16px;
+      min-height: 35px;
+      max-width: 230px;
+      @include es {
+        word-spacing: -1px;
+      }
+    }
+  }
+
+  &__bg-picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 1920px;
+    margin: auto;
+  }
+}

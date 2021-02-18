@@ -1,0 +1,151 @@
+.access {
+  position: relative;
+  padding-bottom: 36px;
+  @include tablet {
+    padding-bottom: 33px;
+    @include en {
+      padding-bottom: 29px;
+    }
+  }
+  @include mobile {
+    padding-bottom: 30px;
+    @include en {
+      padding-bottom: 25px;
+    }
+  }
+
+  &__top {
+    padding: 53px 0 40px;
+    background-color: #353535;
+    color: $white-color;
+    margin-bottom: 65px;
+    @include arrowBottom(#353535, 27px, 28px);
+    &:after {
+      @include minWidth(1201) {
+        margin-left: -237px;
+      }
+    }
+    @include tablet {
+      padding: 36px 0 40px;
+      margin-bottom: 59px;
+    }
+    @include mobile {
+      padding-bottom: 58px;
+      @include en {
+        padding-bottom: 49px;
+      }
+    }
+  }
+
+  &__container {
+    @include mobile {
+      padding: 0 16px;
+    }
+  } 
+
+  &__title {
+    font-weight: $font-weight-700;
+    font-size: 28px;
+    letter-spacing: 0.02em;
+    line-height: 1.261;
+    margin-left: 117px;
+    @include en {
+      margin-left: 82px;
+    }
+    @include tablet {
+      font-size: 26px;
+      margin-left: 0;
+      text-align: center;
+      @include en {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin: 33px 0 0 -7px;
+    max-width: 760px;
+    @include en {
+      margin: 36px 0 0 30px;
+      max-width: 716px;
+    }
+    @include tablet {
+      margin: 33px 0 0 12px;
+      max-width: 742px;
+      @include en {
+        margin: 32px 0 0 38px;
+      }
+    }
+    @include mobile {
+      margin: 28px 0 0 0px;
+      flex-direction: column;
+      max-width: 100%;
+      align-items: center;
+      @include en {
+        margin: 27px 0 0 0;
+      }
+    }
+
+    &-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include mobile {
+        margin-bottom: 47px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #FFCC00 0%, #FF9900 100%);
+    }
+
+    &-text {
+      font-size: 15px;
+      line-height: 1.261;
+      text-align: center;
+      padding-top: 24px;
+      @include en {
+        padding-top: 18px;
+      }
+      @include tablet {
+        padding-top: 16px;
+      }
+    }
+  }
+
+  &__payment-methods {
+    display: flex;
+    justify-content: center;
+    max-width: 706px;
+    margin-left: 19px;
+    @include tablet {
+      margin-left: 34px;
+    }
+    @include mobile {
+      margin-left: 0;
+    }
+    img {
+      max-width: 365px;
+      width: 100%;
+      @include tablet {
+        max-width: 375px;
+      }
+      @include mobile {
+        max-width: 302px;
+      }
+    }
+  }
+}

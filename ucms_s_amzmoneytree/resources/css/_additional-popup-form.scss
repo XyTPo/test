@@ -1,0 +1,75 @@
+.pop-up-form {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px 15px 0;
+  display: none;
+  z-index: 100;
+  text-align: center;
+
+  .pop-up-form-block {
+    max-width: 369px;
+    margin: 0 auto;
+    margin-left: calc(50% - 186px);
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: 0.2s all;
+    -o-transition: 0.2s all;
+    transition: 0.2s all;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+
+    &.animate-form {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      -webkit-transition: 0.2s all;
+      -o-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+  }
+
+  .pop-up-form__close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 32px;
+    font-weight: 400;
+    width: 29px;
+    height: 29px;
+    background: #373737;
+    line-height: 0.8;
+    color: #fff;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    vertical-align: top;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border: 2px solid #fff;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  &.show-popup {
+    display: block;
+    overflow: auto;
+  }
+}
+
+.iframe-popup-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  cursor: pointer;
+}

@@ -1,0 +1,19 @@
+{
+  "title": "ucms_s_amzmoneytree",
+  "languages": [
+    "es",
+    "en"
+  ],
+  "features": [
+    "redirect_brand_on_step_1",
+    "back_button",
+    "no_redirect_brand",
+    "advanced_phone_validation",
+    "jquery_to_footer",
+    "currency_gbp",
+    "currency_dollar",
+    "currency_nzd",
+    "job_top_section"
+  ],
+  "is_supporting_cms": true
+}

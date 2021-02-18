@@ -1,0 +1,159 @@
+.content {
+  padding-bottom: 45px;
+  @include tablet {
+    padding-bottom: 10px;
+  }
+  @include mobile {
+    padding-bottom: 8px;
+  }
+
+  &__container {
+    padding-left: 7px;
+    @include tablet {
+      padding-left: 25px;
+    }
+  }
+
+  &__title {
+    letter-spacing: 0.02em;
+    color: $black-color;
+    line-height: 126.1%;
+    &_1,
+    &_2 {
+      font-weight: $font-weight-700;
+    }
+    &_1 {
+      max-width: 676px;
+      font-size: 28px;
+      margin-bottom: 24px;
+      @include tablet {
+        font-size: 26px;
+      }
+      @include mobile {
+        font-size: 24px;
+        max-width: 328px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    }
+    &_2 {
+      font-size: 22px;
+      line-height: 1.42;
+      margin-bottom: 18px;
+    }
+    &_3 {
+      font-weight: $font-weight-600;
+      font-size: 26px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 1.42;
+    letter-spacing: 0.02em;
+    color: $black-color;
+    max-width: 761px;
+    margin-bottom: 32px;
+    @include en {
+      max-width: 764px;
+    }
+    @include tablet {
+      max-width: 752px;
+    }
+    @include mobile {
+      max-width: 328px;
+      line-height: 1.45;
+      @include en {
+        max-width: 327px;
+      }
+    }
+    &_1 {
+      @include mobile {
+        order: 1;
+        margin-bottom: 23px;
+        @include en {
+          margin-bottom: 27px;
+        }
+      }
+    }
+    &_2 {
+      margin-bottom: 36px;
+      @include en {
+        margin-bottom: 57px;
+      }
+      @include mobile {
+        order: 4;
+        margin-bottom: 26px;
+        @include en {
+          margin-bottom: 19px;
+        }
+      }
+    }
+    &_3 {
+      @include mobile {
+        @include en {
+          margin-bottom: 27px;
+        }
+      }
+    }
+    &_4 {
+      @include mobile {
+        max-width: 326px;
+        @include en {
+          margin-bottom: 30px;
+        }
+      }
+    }
+    &_5 {
+      margin-bottom: 36px;
+      @include tablet {
+        @include en {
+          max-width: 752px;
+        }
+      }
+      @include mobile {
+        max-width: 326px;
+        margin-bottom: 24px;
+        @include en {
+          max-width: 327px;
+          margin-bottom: 32px;
+        }
+      }
+    }
+  }
+
+  &__flex-text {
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__two-blocks {
+    position: relative;
+    max-width: 571px;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__brands {
+    margin-left: 119px;
+    margin-bottom: 66px;
+    @include tablet {
+      max-width: 528px;
+      margin-bottom: 48px;
+    }
+    @include mobile {
+      max-width: 326px;
+      margin-left: 0;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: -45px;
+    right: -167px;
+  }
+}

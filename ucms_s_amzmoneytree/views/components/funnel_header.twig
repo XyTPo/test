@@ -1,0 +1,16 @@
+{% embed "/global/components/header.twig" %}
+    {% block head %}
+        {{ parent() }}
+        {# Fonts #}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;900&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;900&display=swap" media="print" onload="this.media='all'">
+        <noscript>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;600;700&family=Roboto:wght@400;900&display=swap">
+        </noscript>
+        {# End fonts #}
+        <link href="{{ asset('css/rangeSlider/range-slider.css', 'common') }}" rel="stylesheet" rel="preload" as="style">
+        <link href="{{ asset('css/styles.min.css') }}" rel="stylesheet" rel="preload" as="style">
+        {% block step_head %}{% endblock %}
+    {% endblock %}
+{% endembed %}

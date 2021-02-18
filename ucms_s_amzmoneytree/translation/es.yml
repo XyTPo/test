@@ -1,0 +1,50 @@
+# top
+top-job__t1: <p>Empieza a invertir en</p>
+top-job__t2: <p>¡Y comienza a ganar <br><b>un segundo ingreso!</b></p>
+top-job__scroll-btn: <p>Estimación de ganancias</p>
+
+top__title: <p>El dinero no crece <br> en los árboles, crece con</p>
+top__scroll-btn: <p>Estimación de ganancias</p>
+
+# form
+form__title: <p>Invierte en AMAZON</p>
+form__title_2: <p>Invierte en AMAZON</p>
+lead-form-submit: <div>Solicite información</div>
+lead-form-submit_2: <div>Solicite información</div>
+form__text: <p>Para invertir en Amazon debes tener al <br class="desktop-only"> menos 18 años de edad. Capital mínimo <br class="desktop-only"> requerido </p>
+form__text_2: <p>Para invertir en Amazon debes tener al menos 18 años de edad. Capital mínimo requerido </p>
+
+# range-slider
+r-slider__main-title: <p>Descubre tus ganancias potenciales a corto plazo (en máximo 2 meses)</p>
+
+# content
+content__title_1: <p>Un aumento del 468,11% y sigue creciendo ¡Invierta en la imparable Amazon!</p>
+content__title_2: <p>¡No permita que esta oportunidad pase de largo!</p>
+content__title_3: <p>Descubra cómo beneficiarse de la inversión en Amazon</p>
+
+content__text_1: <p>La imparable, Amazon (NASDAQ:AMZN), es la compañía de comercio electrónico cuyas acciones son las más deseadas por los inversores, y no es accidental. <b>Amazon ha vuelto increíblemente ricos a inversores como usted</b>, y lo seguirá haciendo. ¿Qué tan ricos? Si usted hubiese invertido 10.000 USD en Amazon en su momento, ahora esa inversión valdría <b>más de 12 millones de USD</b>. Esa cantidad de dinero le cambia la vida a cualquiera.</p>
+content__text_2: <p>Los expertos consideran que Amazon es la mejor oportunidad de inversión y tienen la expectativa de que <b>seguirá creciendo</b>. Amazon es la tercera mayor compañía que cotiza en bolsa en los EE. UU., avaluada en 1,34 billones de USD. Las acciones de Amazon, que tuvieron un rendimiento superior al del S&P 500, que es su referencia, han tenido muchas oscilaciones ascendentes los últimos 5 años, registrando <b>un incremento total del 468,11%</b>, lo que tiene contentísimos a muchos inversores.</p>
+content__text_3: '<p>Si cree que ya ha perdido ese "tren", pregúntese esto: ¿se imagina una vida sin Amazon? Ahora más que nunca, debido al COVID-19, Amazon ha impactado sobre prácticamente todos los aspectos de la vida en confinamiento: productos caseros esenciales, alimentación, streaming, juegos, artesanías, noticias y entretenimiento. Incluso las páginas que la gente visita: Netflix, Pinterest, Facebook, están todas alojadas en sus servicios de almacenamiento en la nube, Amazon Web Services.</p>'
+content__text_4: <p>Amazon cosechó 75,5 millardos de USD en el primer trimestre del 2020 (compárese con los 59,7 millardos que recaudó en el mismo período del año anterior). Las ventas de sus tiendas físicas, incluyendo la cadena Whole Foods, aumentó hasta los 4,6 millardos de USD y sus servicios de cómputo basado en la nube cruzaron la barrera de los 10 millardos de USD en ingresos trimestrales por primera vez, creciendo un 33% en un año.</p>
+content__text_5: <p>Que no haya duda alguna. Amazon es imparable. No hay nada capaz de pararle los pies a esta colosal compañía. Amazon seguirá interactuando con millones de personas, a nivel mundial, todos los días. Amazon retendrá su cuota actual del mercado y demostrará su valía una y otra vez brindando extraordinarias oportunidades para los inversores.</p>
+
+#twitter-block
+twitter__top-nickname: <p>@TheKing_Hakim</p>
+twitter__top-name: <p>KhalilHakim</p>
+twitter__content-text: <p>Otros 3.700 $ en un día. Gracias <span>#amzn</span></p>
+twitter__content-date: <p>7:35 AM • Sep 3, 2020</p>
+twitter__bottom-text: <p>34</p>
+twitter__bottom-text--last: <p>See KhalilHakim’s other Tweets</p>
+
+# buttons
+site-btn_1: <p>Descubra cómo beneficiarse <br class="mobile-only"> de la inversión en Amazon</p>
+site-btn_2: <p>Descubra cómo beneficiarse <br class="mobile-only"> de la inversión en Amazon</p>
+site-btn_3: <p>Descubra cómo beneficiarse <br class="mobile-only"> de la inversión en Amazon</p>
+
+#access
+access__title: <p>Es fácil empezar.<br class="mobile-only"> Obtenga acceso a:</p>
+access__list-text_1: <p>Plataforma segura <br class="desktop-and-tablet-only"> y <br class="mobile-only"> autorizada</p>
+access__list-text_2: <p>Ganancias en tu <br class="desktop-and-tablet-only"> cuenta <br class="mobile-only"> en 24 horas</p>
+access__list-text_3: <p>Herramientas de <br> aprendizaje <br class="tablet-only-br"> sencillas</p>
+access__list-text_4: <p>Soporte las 24 horas <br class="desktop-and-tablet-only"> y <br class="mobile-only"> asistencia <br class="desktop-only"> continua</p>
+access__btn: <p>Descubra cómo beneficiarse de la inversión en Amazon</p>

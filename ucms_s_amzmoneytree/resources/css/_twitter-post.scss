@@ -1,0 +1,204 @@
+.twitter {
+  max-width: 549px;
+  width: 100%;
+  margin-left: 127px;
+  margin-bottom: 34px;
+  padding: 2px 13px;
+  border-radius: 15px;
+  border: 1px solid #CCD6DD;
+  @include tablet {
+    max-width: 540px;
+    @include en {
+      margin-bottom: 38px;
+    }
+  }
+  @include mobile {
+    order: 2;
+    max-width: 328px;
+    margin-left: 7px;
+    margin-bottom: 30px;
+    @include en {
+      margin-bottom: 30px;
+    }
+  }
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    padding-top: 8px;
+
+    &-item {
+      &--left {
+        max-width: 168px;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+    }
+
+    &-name {
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 14px;
+      color: #14171A;
+      margin: 7px 0 3px;
+      @include en {
+        margin: 3px 0 3px;
+      }
+      @include mobile {
+        margin: 5px 0 0;
+      }
+    }
+
+    &-nickname {
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      color: #6E7F8D;
+    }
+  }
+
+  &__content {
+    &-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #CCD6DD;
+    }
+
+    &-text {
+      font-family: "Roboto", sans-serif;
+      max-width: 495px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      color: #14171A;
+      margin-bottom: 12px;
+      line-height: 28px;
+      @include tablet {
+        margin-bottom: 15px;
+      }
+      @include mobile {
+        margin-bottom: 12px;
+      }
+
+      &--second {
+        line-height: 28px;
+        margin-bottom: 5px;
+      }
+
+      span {
+        color: #2CAAE1;
+      }
+
+      img {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    &-image {
+      margin-bottom: 16px;
+      max-width: 372px;
+      width: 100%;
+      @include tablet {
+        max-width: 368px;
+      }
+      @include mobile {
+        max-width: 284px;
+        margin-bottom: 8px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &-date {
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      color: #8996A2;
+      line-height: 28px;
+    }
+  }
+
+  &__bottom {
+    padding: 6px 0 6px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include mobile {
+      justify-content: space-between;
+    }
+
+    &-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+      &:first-child {
+        margin-right: 30px;
+        @include mobile {
+          margin-right: 0;
+        }
+      }
+
+      .twitter__bottom-text--last {
+        @include mobile {
+          max-width: 195px;
+          p {
+            width: 89%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+        }
+      }
+      &--logo{
+        margin-top: 4px;
+      }
+    }
+
+    &-icon {
+      margin-right: 10px;
+    }
+
+    &-text {
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      color: #8996A2;
+      line-height: 28px;
+    }
+  }
+}
+
+.twitter_bottom{
+  max-width: 550px;
+  width: 100%;
+  margin: 30px auto 26px;
+  padding: 2px 16px;
+  .twitter__content-bottom{
+    padding-bottom: 0px;
+  }
+  .twitter__content-text {
+    margin-bottom: 10px
+  }
+}
+
+[data-img="image"]{
+  background: url("../images/bitcoin.png");
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}

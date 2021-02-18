@@ -1,0 +1,172 @@
+@mixin pl() {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::placeholder {
+    @content;
+  }
+}
+
+@mixin lang($lang) {
+  :lang(#{$lang}) & {
+    @content;
+  }
+}
+
+@mixin it() {
+  @include lang(it) {
+    @content;
+  }
+}
+
+@mixin es() {
+  @include lang(es) {
+    @content;
+  }
+}
+
+@mixin nl() {
+  @include lang(nl) {
+    @content;
+  }
+}
+
+@mixin en() {
+  @include lang(en) {
+    @content;
+  }
+}
+@mixin de() {
+  @include lang(de) {
+    @content;
+  }
+}
+
+@mixin webpbg($name, $format) {
+  .webp & {
+    background-image: url("../images/" + $name + ".webp");
+  }
+  .no-webp & {
+    background-image: url("../images/" + $name + "." + $format);
+  }
+}
+
+@mixin arrowBottom($color, $halfWidth, $height) {
+  position: relative;
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: $height $halfWidth 0 $halfWidth;
+    border-color: $color transparent transparent transparent;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -$halfWidth;
+    z-index: 2;
+  }
+}
+@mixin arrowTop($color, $halfWidth, $height) {
+  position: relative;
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 $halfWidth $height $halfWidth;
+    border-color: transparent transparent $color transparent;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -$halfWidth;
+    z-index: 2;
+  }
+}
+
+@mixin mb($i) {
+  margin-bottom: $i;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+@mixin mr($i) {
+  margin-right: $i;
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+@mixin responsive($size) {
+  @media (max-width: #{$size}px) {
+    @content;
+  }
+}
+
+@mixin maxWidth($width) {
+  @media screen and (max-width: #{$width}px) {
+    @content;
+  }
+}
+@mixin minWidth($width) {
+  @media screen and (min-width: #{$width}px) {
+    @content;
+  }
+}
+@mixin minMaxWidth($minWidth, $maxWidth) {
+  @media screen and (min-width: #{$minWidth}px) and (max-width: #{$maxWidth}px) {
+    @content;
+  }
+}
+
+@mixin borderRadius($size) {
+  border-radius: #{$size}px
+}
+
+@mixin animateHoverBtn ($miliseconds, $animationType, $scaleSize) {
+  webkit-transition: #{$miliseconds}ms all #{$animationType};
+  -o-transition: #{$miliseconds}ms all #{$animationType};
+  transition: #{$miliseconds}ms all #{$animationType};
+  -webkit-transform: scale(#{$scaleSize});
+  -ms-transform: scale(#{$scaleSize});
+  transform: scale(#{$scaleSize});
+}
+
+@mixin desktop() {
+  @include minWidth(1201) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @include maxWidth(1200) {
+    @content;
+  }
+}
+
+@mixin tabletOnly() {
+  @include minMaxWidth(769, 1200) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @include maxWidth(768) {
+    @content;
+  }
+}
+
+@mixin fromMobile() {
+  @media (min-width: 769px) {
+    @content;
+  }
+}

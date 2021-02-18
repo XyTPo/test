@@ -1,0 +1,442 @@
+{% embed "/global/components/base.twig" %}
+    {% import "/global/components/forms.twig" as forms %}
+    {% import "/global/components/range-slider/range-slider.twig" as rangeSlider %}
+
+    {% set jobTopSection = "job_top_section" in funnel.funnel_atts %}
+
+    {% block step_head %}{% endblock %}
+    {% block step_content %}
+        {% set ft = funnel.funnel_template %}
+        {% if "currency_gbp" in funnel.funnel_atts %}
+            {% set dynamicCurrencyIso = 'GBP' %}
+        {% elseif "currency_dollar" in funnel.funnel_atts %}
+            {% set dynamicCurrencyIso = 'USD' %}
+        {% elseif "currency_nzd" in funnel.funnel_atts %}
+            {% set dynamicCurrencyIso = 'NZD' %}
+        {% else %}
+            {% set dynamicCurrencyIso = 'EUR' %}
+        {% endif %}
+
+        {% set isLongCurrencyName = get_dynamic_currency(dynamicCurrencyIso)|length > 1 %} {# if currency is longer than 1 symbol, e.g. NZ$, we decrease its font size in range slider #}
+
+        <div class="wrap{{ isLongCurrencyName ? ' lcurrency' }}{{ jobTopSection ? ' job-top-section'}}">
+            <!--top -->
+            {% if jobTopSection %}
+            <section class="top-job">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="{{ asset('images/top-job-bg-mobile.webp') }}" type="image/webp">
+                    <source media="(min-width: 768px) and (max-width: 1199px)" srcset="{{ asset('images/top-job-bg-tablet.webp') }}" type="image/webp">
+                    <source media="(min-width: 1200px)" srcset="{{ asset('images/top-job-bg-desktop.webp') }}" type="image/webp">
+                    <source media="(max-width: 767px)" srcset="{{ asset('images/top-job-bg-mobile.jpg') }}" type="image/jpeg">
+                    <source media="(min-width: 768px) and (max-width: 1199px)" srcset="{{ asset('images/top-job-bg-tablet.jpg') }}" type="image/jpeg">
+                    <source media="(min-width: 1200px)" srcset="{{ asset('images/top-job-bg-desktop.jpg') }}" type="image/jpeg">
+                    <img class="top-job__bg-picture" src="{{ asset('images/top-job-bg-desktop.jpg') }}" alt="">
+                </picture>
+                <div class="top-job__container container">
+                    <div class="top-job__content">
+                        <div class="top-job__block">
+                            <div class="top-job__t1">
+                                <div data-editable data-name="top-job__t1">
+                                    {{ "top-job__t1"|editable_trans() }}
+                                </div>
+                            </div>
+                            <div class="top-job__logo" data-editable data-name="top-job__logo">
+                                {% set defaultContent %}
+                                    <img src="{{ asset('images/logo-job.png') }}" alt="logo">
+                                {% endset %}
+                                {{ defaultContent|edited_content('top-job__logo') }}
+                            </div>
+                            <div class="top-job__t2">
+                                <div data-editable data-name="top-job__t2">
+                                    {{ "top-job__t2"|editable_trans() }}
+                                </div>
+                            </div>
+                            <div class="top-job__scroll-btn hover-btn js-scroll" data-scroll="r-slider" data-editable data-name="top-job__scroll-btn">
+                                {{ "top-job__scroll-btn"|editable_trans() }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% else %}
+            <section class="top">
+                <div class="top__container container">
+                    <div class="top__text">
+                        <h1 class="top__title">
+                            <div data-editable data-name="top__title">
+                                {{ "top__title"|editable_trans() }}
+                            </div>
+                        </h1>
+                        <div class="top__logo" data-editable data-name="top__logo">
+                            {% set defaultContent %}
+                                <img src="{{ asset('images/logo.png') }}" alt="logo">
+                            {% endset %}
+                            {{ defaultContent|edited_content('top__logo') }}
+                        </div>
+                        <div class="top__scroll-btn hover-btn js-scroll" data-scroll="r-slider" data-editable data-name="top__scroll-btn">
+                            {{ "top__scroll-btn"|editable_trans() }}
+                        </div>
+                    </div>
+                </div>
+
+                <!--bg-desktop -->
+                <div class="top__bg top__bg_desktop desktop-only" data-editable data-name="top__bg_desktop">
+                    {% set defaultContent %}
+                    <div class="top__bg-img-box top__bg-img-box_desktop" data-ce-tag="bkgimg" style="background-image: url({{ asset('images/top-bg-desktop.png') }})"></div>
+                    {% endset %}
+                    {{ defaultContent|edited_content("top__bg_desktop") }}
+                </div>
+
+                <!--bg-tablet -->
+                <div class="top__bg top__bg_tablet" data-editable data-name="top__bg_tablet">
+                    {% set defaultContent %}
+                    <div class="top__bg-img-box top__bg-img-box_desktop" data-ce-tag="bkgimg" style="background-image: url({{ asset('images/top-bg-tablet.png') }})"></div>
+                    {% endset %}
+                    {{ defaultContent|edited_content("top__bg_tablet") }}
+                </div>
+
+                <!--main-bg-mobile -->
+                <div class="top__bg top__bg_mobile mobile-only" data-editable data-name="top__bg_mobile">
+                    {% set defaultContent %}
+                    <div class="top__bg-img-box top__bg-img-box_mobile" data-ce-tag="bkgimg" style="background-image: url({{ asset('images/top-bg-mobile.png') }})"></div>
+                    {% endset %}
+                    {{ defaultContent|edited_content("top__bg_mobile") }}
+                </div>
+            </section>
+            {% endif %}
+
+            <!-- form -->
+            <section class="form form_sticky">
+                <div class="form__container container">
+                    <div class="form__wrap">
+                        <div class="form__top">
+                            <div class="form__main">
+                                <div class="form__title" data-editable data-name="form__title">
+                                    {{ "form__title"|editable_trans() }}
+                                </div>
+
+                                <div class="form__body">
+                                    {{ forms.form_step_1(app.counter('forms'), app.lead_form.brand_register_url, funnel, {
+                                        'submit_text': "lead-form-submit"|trans([], ft),
+                                        'display_fields_labels': true,
+                                        'phone_prefix_countries': true,
+                                        'display_password_eye': false,
+                                        'full_name_field': true,
+                                        'submit_data_name': 'main-form',
+                                    }) }}
+                                    <div class="form__text">
+                                        <div data-editable data-name="form__text">
+                                            {{ "form__text"|editable_trans() }}
+                                        </div>
+                                        <span> {{ get_dynamic_currency(dynamicCurrencyIso, 250) }}</span>
+                                     </div>
+                                </div>
+                                <div class="form__footer" data-editable data-name="form__payment-methods">
+                                    {% set defaultContent %}
+                                        <img src="{{ asset('images/payment-methods.png') }}" alt="">
+                                    {% endset %}
+                                    {{ defaultContent|edited_content('form__payment-methods') }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--range-slider -->
+            <section class="r-slider">
+                <div class="r-slider__container container">
+                    <div class="r-slider__body">
+                        <h2 class="r-slider__main-title" data-editable data-name="r-slider__main-title">
+                            {{ "r-slider__main-title"|editable_trans() }}
+                        </h2> 
+                        {{ rangeSlider.range({
+                            "range_label": true,
+                            "range_minmax_row": true,
+                            "array_is_dynamic": true,
+                            "custom_scroll_event": true,
+                            "min_value": 250,
+                            "max_value": 20000,
+                            "step_size": 50,
+                            "bottom_box": true,
+                            "hide_max_value": true,
+                            'currency_before_amount': ( dynamicCurrencyIso == 'GBP' ) ? true : false,
+                            "translations": {
+                                'en': {
+                                    'range_text1': '',
+                                    'range_text2': '',
+                                    'currencySymbol': get_dynamic_currency(dynamicCurrencyIso),
+                                    'bottom_text': 'POSSIBLE PROFIT'
+                                },
+                                'es': {
+                                    'range_text1': '',
+                                    'range_text2': '',
+                                    'currencySymbol': get_dynamic_currency(dynamicCurrencyIso),
+                                    'bottom_text': 'POSIBLES BENEFICIOS'
+                                },
+                            },
+                        })}}
+                    </div>
+                </div>
+            </section>
+
+            <!--content -->
+            <section class="content">
+                <div class="content__container container">
+                    <h3 class="content__title content__title_1">
+                        <div data-editable data-name="content__title_1">
+                            {{ "content__title_1"|editable_trans() }}
+                        </div>
+                    </h3>
+
+                    <div class="content__flex-text">
+                        <div class="content__text content__text_1" data-editable data-name="content__text_1">
+                            {{ 'content__text_1'|editable_trans() }}
+                        </div>
+                        <div class="content__text content__text_2" data-editable data-name="content__text_2">
+                            {{ 'content__text_2'|editable_trans() }}
+                        </div>
+
+                        <!--twitter-post -->
+                        <div class="twitter">
+                            <div class="twitter__top">
+                                <div class="twitter__top-item twitter__top-item--left">
+                                    <div class="twitter__top-icon">
+                                        <img src="{{ asset('images/twitter-icon.png') }}" alt="">
+                                    </div>
+                                    <div class="twitter__top-text">
+                                        <div class="twitter__top-name"  data-editable data-name="twitter__top-name">
+                                            {{ "twitter__top-name"|editable_trans() }}
+                                        </div>
+                                        <div class="twitter__top-nickname"  data-editable data-name="twitter__top-nickname">
+                                            {{ "twitter__top-nickname"|editable_trans() }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-editable data-name="twitter__top-item--logo" class="twitter__top-item twitter__top-item--logo">
+                                    {% set defaultContent %}
+                                        <img src="{{ asset('images/twitter-logo.png') }}" alt="">
+                                    {% endset %}
+                                    {{ defaultContent|edited_content("twitter__top-item--logo") }}
+                                </div>
+                            </div>
+                            <div class="twitter__content">
+                                <div class="twitter__content-text"  data-editable data-name="twitter__content-text">
+                                    {{ "twitter__content-text"|editable_trans() }}
+                                </div>
+                                <div data-editable data-name="twitter__content-image" class="twitter__content-image">
+                                    {% set defaultContent %}
+                                        <img src="{{ asset('images/twitter-img.jpg') }}" alt="">
+                                    {% endset %}
+                                    {{ defaultContent|edited_content("twitter__content-image") }}
+                                </div>
+                                <div class="twitter__content-bottom">
+                                    <div class="twitter__content-date"  data-editable data-name="twitter__content-date">
+                                        {{ "twitter__content-date"|editable_trans() }}
+                                    </div>
+                                    <div data-editable data-name="icon-info">
+                                        {% set defaultContent %}
+                                            <img src="{{ asset('images/icon-info.png') }}" alt="">
+                                        {% endset %}
+                                        {{ defaultContent|edited_content("icon-info") }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="twitter__bottom">
+                                <div class="twitter__bottom-item">
+                                    <div data-editable data-name="icon-like" class="twitter__bottom-icon">
+                                        {% set defaultContent %}
+                                            <img src="{{ asset('images/icon-like.png') }}" alt="">
+                                        {% endset %}
+                                        {{ defaultContent|edited_content("icon-like") }}
+                                    </div>
+                                    <div class="twitter__bottom-text"  data-editable data-name="twitter__bottom-text">
+                                        {{ "twitter__bottom-text"|editable_trans() }}
+                                    </div>
+                                </div>
+                                <div class="twitter__bottom-item">
+                                    <div data-editable data-name="icon-person" class="twitter__bottom-icon">
+                                        {% set defaultContent %}
+                                            <img src="{{ asset('images/icon-person.png') }}" alt="">
+                                        {% endset %}
+                                        {{ defaultContent|edited_content("icon-person") }}
+                                    </div>
+                                    <div class="twitter__bottom-text twitter__bottom-text--last"  data-editable data-name="twitter__bottom-text--last">
+                                        {{ "twitter__bottom-text--last"|editable_trans() }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="site-btn site-btn_1 hover-btn js-scroll js-popup-form" data-scroll="form__top" data-editable data-name="site-btn_1">
+                            {{ "site-btn_1"|editable_trans() }}
+                        </div>
+                    </div>
+
+                    <h4 class="content__title content__title_2">
+                        <div data-editable data-name="content__title_2">
+                            {{ "content__title_2"|editable_trans() }}
+                        </div>
+                    </h4>
+                    <div class="content__text content__text_3" data-editable data-name="content__text_3">
+                        {{ 'content__text_3'|editable_trans() }}
+                    </div>
+                        <div class="content__text content__text_4" data-editable data-name="content__text_4">
+                        {{ 'content__text_4'|editable_trans() }}
+                    </div>
+                        <div class="content__text content__text_5" data-editable data-name="content__text_5">
+                        {{ 'content__text_5'|editable_trans() }}
+                    </div>
+                    <div class="content__brands" data-editable data-name="content__brands">
+                        {% set defaultContent %}
+                            <img src="{{ asset('images/brands.jpg') }}" alt="">
+                        {% endset %}
+                        {{ defaultContent|edited_content('content__brands') }}
+                    </div>
+
+                    <div class="site-btn site-btn_2 hover-btn js-scroll js-popup-form" data-scroll="form__top" data-editable data-name="site-btn_2">
+                        {{ "site-btn_2"|editable_trans() }}
+                    </div>
+
+                    <div class="content__two-blocks">
+                        <h2 class="content__title content__title_3">
+                            <div data-editable data-name="content__title_3">
+                                {{ "content__title_3"|editable_trans() }}
+                            </div>
+                        </h2>
+                        <div class="content__arrow" data-editable data-name="content__arrow">
+                            {% set defaultContent %}
+                                <img src="{{ asset('images/text-arrow.png') }}" alt="">
+                            {% endset %}
+                        {{ defaultContent|edited_content('content__arrow') }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- access -->
+            <section class="access">
+                <div class="access__top">
+                    <div class="access__container container">
+                        <h2 class="access__title">
+                            <div data-editable data-name="access__title">
+                                {{ "access__title"|editable_trans() }}
+                            </div>
+                        </h2>
+                        <ul class="access__list">
+                            <li class="access__list-item">
+                                <div class="access__list-img">
+                                    <div class="access__list-img-box" data-editable data-name="access__list-img_1">
+                                        {% set defaultContent %}
+                                            <img src="{{ asset('images/list-item-1.png') }}" alt="">
+                                        {% endset %}
+                                        {{ defaultContent|edited_content('access__list-img_1') }}
+                                    </div>
+                                </div>
+                                <div class="access__list-text" data-editable data-name="access__list-text_1">
+                                    {{ 'access__list-text_1'|editable_trans() }}
+                                </div>
+                            </li>
+
+                            <li class="access__list-item">
+                                <div class="access__list-img">
+                                    <div class="access__list-img-box" data-editable data-name="access__list-img_2">
+                                        {% set defaultContent %}
+                                            <img src="{{ asset('images/list-item-2.png') }}" alt="">
+                                        {% endset %}
+                                        {{ defaultContent|edited_content('access__list-img_2') }}
+                                    </div>
+                                </div>
+                                <div class="access__list-text" data-editable data-name="access__list-text_2">
+                                    {{ 'access__list-text_2'|editable_trans() }}
+                                </div>
+                            </li>
+
+                            <li class="access__list-item">
+                                <div class="access__list-img">
+                                    <div class="access__list-img-box" data-editable data-name="access__list-img_3">
+                                        {% set defaultContent %}
+                                            <img src="{{ asset('images/list-item-3.png') }}" alt="">
+                                        {% endset %}
+                                        {{ defaultContent|edited_content('access__list-img_3') }}
+                                    </div>
+                                </div>
+                                <div class="access__list-text" data-editable data-name="access__list-text_3">
+                                    {{ 'access__list-text_3'|editable_trans() }}
+                                </div>
+                            </li>
+
+                            <li class="access__list-item">
+                                <div class="access__list-img">
+                                    <div class="access__list-img-box" data-editable data-name="access__list-img_4">
+                                        {% set defaultContent %}
+                                            <img src="{{ asset('images/list-item-4.png') }}" alt="">
+                                        {% endset %}
+                                        {{ defaultContent|edited_content('access__list-img_4') }}
+                                    </div>
+                                </div>
+                                <div class="access__list-text" data-editable data-name="access__list-text_4">
+                                    {{ 'access__list-text_4'|editable_trans() }}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="access__bottom">
+                    <div class="access__container container">
+                        <div class="site-btn site-btn_3 hover-btn js-scroll js-popup-form" data-scroll="form__top" data-editable data-name="site-btn_3">
+                            {{ "site-btn_3"|editable_trans() }}
+                        </div>
+                        <div class="access__payment-methods" data-editable data-name="access__payment-methods">
+                            {% set defaultContent %}
+                                <img src="{{ asset('images/payment-methods.png') }}" alt="">
+                            {% endset %}
+                            {{ defaultContent|edited_content('access__payment-methods') }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- pop-up form start --> 
+        <div class="pop-up-form">
+            <div class="pop-up-form-block">
+                <div class="form form_popup">
+                    <div class="form__top form__top_popup">
+                        <div class="form__main">
+                            <div class="form__title" data-editable data-name="form__title_2">
+                                {{ "form__title_2"|editable_trans() }}
+                            </div>
+                        
+                            <div class="form__body">
+                                {{ forms.form_step_1(app.counter('forms'), app.lead_form.brand_register_url, funnel, {
+                                    'submit_text': "lead-form-submit_2"|trans([], ft),
+                                    'display_fields_labels': true,
+                                    'phone_prefix_countries': true,
+                                    'display_password_eye': false,
+                                    'full_name_field': true,
+                                    'submit_data_name': 'main-form',
+                                }) }}
+                                <div class="form__text">
+                                        <div data-editable data-name="form__text_2">
+                                    {{ "form__text_2"|editable_trans() }}
+                                </div>
+                                    <span> {{ get_dynamic_currency(dynamicCurrencyIso, 250) }}</span>
+                                </div>
+                            </div>
+                            <div class="form__footer" data-editable data-name="form__payment-methods_2">
+                                {% set defaultContent %}
+                                    <img src="{{ asset('images/payment-methods.png') }}" alt="">
+                                {% endset %}
+                                {{ defaultContent|edited_content('form__payment-methods_2') }}
+                            </div>        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- pop-up form end -->
+
+        <script src="{{ asset('scripts/popup.js') }}"></script>
+    {% endblock %}
+{% endembed %}

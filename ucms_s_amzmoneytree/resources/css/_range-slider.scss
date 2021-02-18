@@ -1,0 +1,224 @@
+.r-slider {
+  padding-top: 28px;
+  margin-bottom: 106px;
+  margin-top: -223px;
+  @include tablet {
+    // margin-top: -301px;
+    margin-top: -270px;
+    margin-bottom: 92px;
+    @include en {
+      // margin-top: -306px;
+      margin-top: -270px;
+    }
+  }
+  @include mobile {
+    margin-top: 0;
+    padding-top: 40px;
+    margin-bottom: 78px;
+    @include en {
+      margin-bottom: 83px;
+      margin-top: 0;
+    }
+  }
+  .job-top-section & {
+    margin-top: 0;
+    @include fromMobile {
+      padding-top: 0;
+    }
+  }
+  &__container {
+    @include mobile {
+      padding: 0 10px;
+    }
+  }
+
+  &__body {
+    position: relative;
+    background: #fff;
+    border: 4px solid #F5AF02;
+    box-shadow: 0px 5px 32px rgba(0,0,0,0.15);
+    border-radius: 14px;
+    padding: 31px 38px 99px 39px;
+    max-width: 765px;
+    margin-left: -9px;
+    @include tablet {
+      margin-left: 0;
+    }
+    @include mobile {
+      max-width: 335px;
+      margin: 0 auto;
+      padding: 24px 17px 75px 24px;
+    }
+  }
+
+  &__main-title {
+    max-width: 574px;
+    font-weight: $font-weight-700;
+    font-size: 28px;
+    line-height: 1.261;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #212E51;
+    margin: 0 auto 58px auto;
+    @include en {
+      max-width: 590px;
+      font-size: 26px;
+      margin-bottom: 65px;
+    }
+    @include mobile {
+      font-size: 18px;
+      line-height: 1.17;
+      margin-bottom: 45px;
+      color: #080810;
+      @include en {
+        font-size: 18px;
+        margin-bottom: 46px;
+      }
+    }
+  }
+
+  &__btn {
+    max-width: 281px;
+    min-height: 109px;    
+    background: linear-gradient(102.55deg, #1DBF73 0%, #3EED9B 100%);
+    border-radius: $border-radius-10;
+    color: $white-color;
+    padding: 16px 12px 12px;
+  }
+
+  &__btn-text {
+    font-size: 15px;
+    line-height: 1.261;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  &__btn-data {
+    font-weight: $font-weight-700;
+    font-size: 45px;
+    line-height: 1.261;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  .range__inner {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .range_min-max__item_max {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .range__label .range-slider-wrapper {
+    padding: 0 0 0 83px;
+  }
+
+  .range_min-max__item_min,
+  .range_min-max__item_max {
+    margin-top: 13px;
+    @include mobile {
+      margin-top: 5px;
+    }
+  }
+
+  .range__label.range .noUi-horizontal .noUi-handle {
+    top: -9px;
+    right: -5px;
+    background: #fff;
+    color: #727B83;
+    border: 1px solid #FF8501;
+    box-shadow: 0px 2px 9px rgba(0,0,0,0.17);
+    width: 89px;
+    border-radius: $border-radius-5;
+    height: 37px;
+    @include mobile {
+      top: -12px;
+    }
+  }
+
+  .range__label .noUi-touch-area::before,
+  .range__label .noUi-touch-area::after {
+    border-color: #FF8501;
+    padding: 3px;
+    top: 13px;
+  }
+
+  .range__label .noUi-touch-area::before {
+   
+    @include mobile {
+      left: 7px;
+    }
+    .lcurrency & {
+      left: 5px;
+    }
+  }
+  .range__label .noUi-touch-area::after {
+  
+    @include mobile {
+      right: 7px;
+    }
+    .lcurrency & {
+      right: 5px;
+    }
+  }
+
+  .range__label .noUi-touch-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.261;
+    background: $white-color;
+    letter-spacing: 0.02em;
+    font-size: 12px;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.17);
+    @include borderRadius(4);
+    .lcurrency & {
+      letter-spacing: -0.3px;
+    }
+  }
+
+  .r-slider__bottom .r-slider__subtitle {
+    font-weight: $font-weight-700;
+    @include fromMobile {
+      .lcurrency & {
+        font-size: 40px;
+        letter-spacing: -0.5px;
+      }
+    }
+    @include mobile {
+      font-size: 38px;
+    }
+  }
+
+  .range__label .range-slider-wrapper,
+  .range .noUi-connect  {
+    background: linear-gradient(90deg, #86B817 0%, #B4EC37 108.34%);
+  }
+
+  .r-slider__bottom {
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(102.55deg, #FF9900 0%, #FFCC00 100%);    
+  }
+
+  .range .noUi-horizontal {
+    height: 16px;
+    @include mobile {
+      height: 12px;
+    }
+  }
+
+  .r-slider__bottom {
+    transition: transform .15s ease;
+    &:hover {
+      transform: translateX(-50%) scale(1.08);
+    }
+
+    .r-slider__title {
+      font-weight: $font-weight-400;
+    }
+  }
+}
